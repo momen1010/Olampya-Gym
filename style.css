@@ -385,3 +385,62 @@ nav ul li a:hover{
         width:100%;
     }
 }
+/* Mobile Responsive - iPhone 13 & similar */
+@media (max-width: 430px) {
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* الصور */
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* الفورم */
+  form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  input, button {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  /* زر الواتساب */
+  .whatsapp-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* العداد */
+  .counter-box {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
