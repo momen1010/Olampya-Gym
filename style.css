@@ -55,8 +55,7 @@ nav ul li a:hover{
     height:90vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
      .hero {
-    background: url("images/ https://github.com/momen1010/Olampya-Gym/blob/main/WhatsApp%20Image%202026-02-13%20at%206.10.20%20PM.jpeg") no-repeat center center/cover;
-}
+    background: url("images/WhatsApp Image 2026-02-13 at 6.10.20 PM.jpeg")no-repeat center center/cover;
            
     display:flex;
     align-items:center;
@@ -446,6 +445,7 @@ nav ul li a:hover{
     align-items: center;
   }
 }
+
 
 
 
