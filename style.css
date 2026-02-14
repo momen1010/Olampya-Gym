@@ -54,7 +54,7 @@ nav ul li a:hover{
 .hero{
     height:90vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url("https://images.WhatsApp Image 2026-02-13 at 6.10.20 PM.jpeg") center/cover no-repeat;
+                url("https://images.3bss.jpeg") center/cover no-repeat;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -444,6 +444,7 @@ nav ul li a:hover{
     align-items: center;
   }
 }
+
 
 
 
