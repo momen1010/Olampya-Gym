@@ -1,3 +1,25 @@
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if(password.length < 6) {
+        document.getElementById("message").textContent = "كلمة المرور لازم تكون 6 حروف على الأقل";
+        return;
+    }
+
+    document.getElementById("message").textContent = "تم التسجيل بنجاح 🎉";
+
+    console.log({
+        username,
+        email,
+        password
+    });
+});
+
+
 // Scroll Reveal
 window.addEventListener("scroll", function(){
     document.querySelectorAll(".reveal").forEach(el=>{
@@ -43,3 +65,4 @@ const themeToggle = document.getElementById("themeToggle");
 themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
 });
+
