@@ -12,6 +12,46 @@ body{
     scroll-behavior: smooth;
 }
 
+
+.container {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: crimson;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkred;
+}
+
+#message {
+    color: lightgreen;
+    text-align: center;
+}
+
 /* Navbar */
 nav{
     display:flex;
@@ -444,6 +484,7 @@ nav ul li a:hover{
     align-items: center;
   }
 }
+
 
 
 
