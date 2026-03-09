@@ -1,64 +1,55 @@
-// العداد (Stats Counter)
-const counters = document.querySelectorAll('.counter');
-const speed = 200;
+// Dark/Light Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light");
+});
 
-const startCounter = () => {
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const inc = target / speed;
-
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 1);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    });
-};
-
-// Scroll Reveal & Trigger Counter
-window.addEventListener('scroll', () => {
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach(reveal => {
-        const windowHeight = window.innerHeight;
-        const revealTop = reveal.getBoundingClientRect().top;
-        if (revealTop < windowHeight - 150) {
-            reveal.classList.add('active');
+// Scroll Reveal
+window.addEventListener("scroll", () => {
+    document.querySelectorAll(".reveal").forEach(el => {
+        let top = el.getBoundingClientRect().top;
+        let windowHeight = window.innerHeight;
+        if(top < windowHeight - 100){
+            el.classList.add("active");
         }
     });
+});
 
-    // تشغيل العداد عند الوصول إليه
-    const statsSection = document.querySelector('.stats');
-    const sectionPos = statsSection.getBoundingClientRect().top;
-    if (sectionPos < window.innerHeight) {
-        startCounter();
-    }
+// Stats Counter
+let counters = document.querySelectorAll(".counter");
+counters.forEach(counter => {
+    let update = () => {
+        let target = +counter.getAttribute("data-target");
+        let count = +counter.innerText;
+        let inc = target / 200;
+        if(count < target){
+            counter.innerText = Math.ceil(count + inc);
+            requestAnimationFrame(update);
+        }else{
+            counter.innerText = target;
+        }
+    };
+    update();
 });
 
 // BMI Calculator
-function calcBMI() {
-    const w = document.getElementById('weight').value;
-    const h = document.getElementById('height').value / 100;
-    const resultDiv = document.getElementById('result');
-
-    if (w > 0 && h > 0) {
-        const bmi = (w / (h * h)).toFixed(1);
-        let category = "";
-        let color = "";
-
-        if (bmi < 18.5) { category = "نحافة"; color = "#ffcb00"; }
-        else if (bmi < 25) { category = "وزن مثالي"; color = "#2ecc71"; }
-        else if (bmi < 30) { category = "وزن زائد"; color = "#e67e22"; }
-        else { category = "سمنة"; color = "#e74c3c"; }
-
-        resultDiv.style.color = color;
-        resultDiv.innerHTML = `مؤشر كتلة جسمك هو: ${bmi} <br> التصنيف: ${category}`;
-    } else {
-        resultDiv.innerHTML = "يرجى إدخال قيم صحيحة";
-    }
+function calcBMI(){
+    let w = document.getElementById("weight").value;
+    let h = document.getElementById("height").value / 100;
+    let bmi = w / (h*h);
+    let res = document.getElementById("result");
+    if(bmi < 18.5) res.innerText = "Underweight";
+    else if(bmi < 25) res.innerText = "Normal";
+    else if(bmi < 30) res.innerText = "Overweight";
+    else res.innerText = "Obese";
 }
+
+// Optional: Smooth scroll for nav links
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
 
