@@ -1,152 +1,130 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olympia Gym | عالم القوة</title>
+    <title>Olympia Gym</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<a href="https://wa.me/2015576507666" class="whatsapp-float" target="_blank">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
+<!-- Dark/Light Toggle -->
+<button id="themeToggle" class="theme-toggle">🌞/🌙</button>
 
+<!-- WhatsApp Button -->
+<a href="https://wa.me/2015576507666" class="whatsapp" target="_blank">WhatsApp</a>
+
+<!-- Navbar -->
 <nav>
-    <div class="logo">OLYMPIA<span>GYM</span></div>
-    <ul class="nav-links">
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#plans">الباقات</a></li>
-        <li><a href="#trainers">المدربين</a></li>
-        <li><a href="#bmi">حاسبة BMI</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
+    <h1>Olympia</h1>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#trainers">Trainers</a></li>
+        <li><a href="#bmi">BMI</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#login" class="login-btn-nav">دخول</a>
 </nav>
 
-<section id="home" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content reveal">
-        <h1>ابنِ جسدك، ابنِ <span>ثقتك</span></h1>
-        <p>أفضل المعدات وأكفأ المدربين في انتظارك لتحويل أحلامك إلى واقع.</p>
-        <div class="hero-btns">
-            <button class="btn-primary">اشترك الآن</button>
-            <button class="btn-secondary">تعرف علينا</button>
-        </div>
+<!-- Hero -->
+<section id="home" class="hero reveal">
+    <div class="hero-content">
+        <h2>Build Your Dream Body</h2>
+        <p>Join Olympia Gym – Men & Women</p>
+        <button>Join Now</button>
     </div>
 </section>
 
-<section class="stats">
-    <div class="stat-item">
+<!-- Stats -->
+<section class="stats reveal">
+    <div class="stat">
         <h2 class="counter" data-target="1200">0</h2>
-        <p>عضو مشترك</p>
+        <p>Members</p>
     </div>
-    <div class="stat-item">
+    <div class="stat">
         <h2 class="counter" data-target="15">0</h2>
-        <p>مدرب محترف</p>
+        <p>Trainers</p>
     </div>
-    <div class="stat-item">
+    <div class="stat">
         <h2 class="counter" data-target="5">0</h2>
-        <p>سنوات خبرة</p>
+        <p>Years Experience</p>
     </div>
 </section>
 
+<!-- Plans -->
 <section id="plans" class="pricing reveal">
-    <h2 class="section-title">خطط الاشتراك</h2>
-    <div class="cards-container">
+    <h2>Membership Plans</h2>
+    <div class="cards">
         <div class="card">
-            <h3>الأساسية</h3>
-            <div class="price">300 <span>EGP</span></div>
-            <ul>
-                <li>دخول صالة الجيم</li>
-                <li>خزانة خاصة</li>
-                <li>دعم فني</li>
-            </ul>
-            <button class="card-btn">اختيار الخطة</button>
-        </div>
-        <div class="card featured">
-            <div class="badge">الأكثر طلباً</div>
-            <h3>القياسية</h3>
-            <div class="price">800 <span>EGP</span></div>
-            <ul>
-                <li>كل مميزات الأساسية</li>
-                <li>برنامج غذائي</li>
-                <li>3 حصص مع مدرب</li>
-            </ul>
-            <button class="card-btn">اختيار الخطة</button>
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?fit=crop&w=400" alt="Basic Plan">
+            <h3>Basic</h3>
+            <p class="price">300 EGP</p>
+            <p>1 Month</p>
         </div>
         <div class="card">
-            <h3>الاحترافية</h3>
-            <div class="price">2500 <span>EGP</span></div>
-            <ul>
-                <li>كل مميزات القياسية</li>
-                <li>متابعة يومية</li>
-                <li>مساج وساونا</li>
-            </ul>
-            <button class="card-btn">اختيار الخطة</button>
+            <img src="https://images.unsplash.com/photo-1594737625785-82e464184da0?fit=crop&w=400" alt="Standard Plan">
+            <h3>Standard</h3>
+            <p class="price">800 EGP</p>
+            <p>3 Months</p>
+        </div>
+        <div class="card pro">
+            <img src="https://images.unsplash.com/photo-1571019613914-85f342c6f40b?fit=crop&w=400" alt="Pro Plan">
+            <h3>Pro</h3>
+            <p class="price">2500 EGP</p>
+            <p>1 Year</p>
         </div>
     </div>
 </section>
 
+<!-- Trainers -->
 <section id="trainers" class="trainers reveal">
-    <h2 class="section-title">نخبة المدربين</h2>
-    <div class="cards-container">
-        <div class="trainer-card">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=300&q=80" alt="Coach">
-            <h3>كابتن أحمد عبد السلام</h3>
-            <p>خبير كمال الأجسام</p>
+    <h2>Our Trainers</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?fit=crop&w=400" alt="Coach Ahmed">
+            <h3>Coach Ahmed AbdElsalam</h3>
+            <p>Bodybuilding Coach</p>
         </div>
-        <div class="trainer-card">
-            <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&w=300&q=80" alt="Coach">
-            <h3>كابتن ألفت</h3>
-            <p>مدربة لياقة بدنية</p>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?fit=crop&w=400" alt="Coach Olfet">
+            <h3>Coach Olfet</h3>
+            <p>Fitness Trainer</p>
         </div>
-        <div class="trainer-card">
-            <img src="https://images.unsplash.com/photo-149175235542e-00ca68062967?auto=format&fit=crop&w=300&q=80" alt="Coach">
-            <h3>كابتن يوسف</h3>
-            <p>أخصائي تخسيس</p>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1571019613914-85f342c6f40b?fit=crop&w=400" alt="Coach Youssef">
+            <h3>Coach Youssef</h3>
+            <p>Weight Loss Expert</p>
         </div>
     </div>
 </section>
 
-<section id="bmi" class="bmi-section reveal">
-    <div class="bmi-box">
-        <h2>حاسبة كتلة الجسم (BMI)</h2>
-        <div class="input-group">
-            <input type="number" id="weight" placeholder="الوزن (كجم)">
-            <input type="number" id="height" placeholder="الطول (سم)">
-        </div>
-        <button onclick="calcBMI()" class="btn-primary">احسب الآن</button>
-        <div id="result" class="bmi-result"></div>
-    </div>
+<!-- BMI Calculator -->
+<section id="bmi" class="bmi reveal">
+    <h2>BMI Calculator</h2>
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+    <button onclick="calcBMI()">Calculate</button>
+    <h3 id="result"></h3>
 </section>
 
-<footer id="contact">
-    <div class="footer-content">
-        <div class="footer-info">
-            <h2>Olympia<span>Gym</span></h2>
-            <p>نحن لا نبني عضلات فقط، نحن نبني شخصيات.</p>
-        </div>
-        <form class="contact-form">
-            <input type="text" placeholder="الاسم بالكامل">
-            <input type="tel" placeholder="رقم الهاتف">
-            <button type="submit">إرسال</button>
-        </form>
-    </div>
-    <p class="copy">© 2026 Olympia Gym. جميع الحقوق محفوظة.</p>
-</footer>
+<!-- Login -->
+<section id="login" class="login reveal">
+    <h2>Member Login</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact reveal">
+    <h2>Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="text" placeholder="Phone Number" required>
+        <button type="submit">Send</button>
+    </form>
+</section>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
