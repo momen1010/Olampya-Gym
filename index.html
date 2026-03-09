@@ -26,16 +26,16 @@
     </ul>
 </nav>
 
-<!-- Hero -->
+<!-- Hero Section -->
 <section id="home" class="hero reveal">
     <div class="hero-content">
-        <h2>Build Your Dream Body</h2>
-        <p>Join Olympia Gym – Men & Women</p>
+        <h2>Build Your Body</h2>
+        <p>Men & Women Gym - Start Today</p>
         <button>Join Now</button>
     </div>
 </section>
 
-<!-- Stats -->
+<!-- Stats Section -->
 <section class="stats reveal">
     <div class="stat">
         <h2 class="counter" data-target="1200">0</h2>
@@ -51,7 +51,7 @@
     </div>
 </section>
 
-<!-- Plans -->
+<!-- Plans Section -->
 <section id="plans" class="pricing reveal">
     <h2>Membership Plans</h2>
     <div class="cards">
@@ -62,13 +62,13 @@
             <p>1 Month</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1594737625785-82e464184da0?fit=crop&w=400" alt="Standard Plan">
+            <img src="https://images.unsplash.com/photo-1554284126-4bbf90a0a12f?fit=crop&w=400" alt="Standard Plan">
             <h3>Standard</h3>
             <p class="price">800 EGP</p>
             <p>3 Months</p>
         </div>
-        <div class="card pro">
-            <img src="https://images.unsplash.com/photo-1571019613914-85f342c6f40b?fit=crop&w=400" alt="Pro Plan">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1583454110550-7c2a3b245c2f?fit=crop&w=400" alt="Pro Plan">
             <h3>Pro</h3>
             <p class="price">2500 EGP</p>
             <p>1 Year</p>
@@ -76,29 +76,29 @@
     </div>
 </section>
 
-<!-- Trainers -->
+<!-- Trainers Section -->
 <section id="trainers" class="trainers reveal">
     <h2>Our Trainers</h2>
     <div class="cards">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?fit=crop&w=400" alt="Coach Ahmed">
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?fit=crop&w=400" alt="Coach Ahmed">
             <h3>Coach Ahmed AbdElsalam</h3>
             <p>Bodybuilding Coach</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?fit=crop&w=400" alt="Coach Olfet">
+            <img src="https://images.unsplash.com/photo-1599058917217-8a0f1293c24a?fit=crop&w=400" alt="Coach Olfet">
             <h3>Coach Olfet</h3>
             <p>Fitness Trainer</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1571019613914-85f342c6f40b?fit=crop&w=400" alt="Coach Youssef">
+            <img src="https://images.unsplash.com/photo-1594737625785-c0eb99a2b4b2?fit=crop&w=400" alt="Coach Youssef">
             <h3>Coach Youssef</h3>
             <p>Weight Loss Expert</p>
         </div>
     </div>
 </section>
 
-<!-- BMI Calculator -->
+<!-- BMI Calculator Section -->
 <section id="bmi" class="bmi reveal">
     <h2>BMI Calculator</h2>
     <input type="number" id="weight" placeholder="Weight (kg)">
@@ -107,24 +107,26 @@
     <h3 id="result"></h3>
 </section>
 
-<!-- Login -->
+<!-- Login Section -->
 <section id="login" class="login reveal">
     <h2>Member Login</h2>
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
+    <input type="text" placeholder="Username" id="username">
+    <input type="password" placeholder="Password" id="password">
+    <button id="loginBtn">Login</button>
+    <p id="message"></p>
 </section>
 
-<!-- Contact -->
+<!-- Contact Section -->
 <section id="contact" class="contact reveal">
     <h2>Contact Us</h2>
-    <form>
+    <form id="contactForm">
         <input type="text" placeholder="Your Name" required>
         <input type="text" placeholder="Phone Number" required>
         <button type="submit">Send</button>
     </form>
 </section>
 
+<!-- Scripts -->
 <script src="script.js"></script>
 </body>
 </html>
