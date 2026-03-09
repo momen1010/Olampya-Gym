@@ -1,10 +1,11 @@
-/* 1. إعدادات عامة وتحسين الخطوط */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
 :root {
-    --primary-red: #e50914;
-    --dark-black: #0a0a0a;
-    --card-gray: #1a1a1a;
-    --text-white: #ffffff;
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --primary: #e50914;
+    --dark: #0a0a0a;
+    --card-bg: #161616;
+    --text: #ffffff;
+    --gray: #888;
 }
 
 * {
@@ -15,228 +16,159 @@
 }
 
 body {
-    background-color: var(--dark-black);
-    color: var(--text-white);
+    background-color: var(--dark);
+    color: var(--text);
     line-height: 1.6;
+    direction: rtl;
     overflow-x: hidden;
-    direction: rtl; /* لضبط الاتجاه العربي */
 }
 
-/* 2. الهيدر والقائمة (Navbar) */
+/* Navbar */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    background: rgba(0, 0, 0, 0.95);
+    padding: 1rem 5%;
+    background: rgba(0, 0, 0, 0.9);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 2000;
-    border-bottom: 2px solid var(--primary-red);
+    z-index: 1000;
+    border-bottom: 1px solid #333;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    text-transform: uppercase;
-}
+.logo { font-size: 1.5rem; font-weight: 900; }
+.logo span { color: var(--primary); }
 
-.logo span { color: var(--primary-red); }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: var(--transition);
-}
-
-.nav-links a:hover { color: var(--primary-red); }
-
-/* 3. واجهة الموقع (Hero Section) */
+/* Hero Section */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    padding-top: 80px;
 }
 
-.hero-content h1 {
-    font-size: clamp(2rem, 8vw, 4rem);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.2; }
+.hero h1 span { color: var(--primary); }
 
-.hero-content h1 span { color: var(--primary-red); }
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #ccc;
-}
-
-/* 4. الأزرار */
-.btn-primary {
-    background: var(--primary-red);
-    color: white;
-    padding: 12px 35px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 18px;
-    transition: var(--transition);
-}
-
-.btn-primary:hover {
-    background: #b20710;
-    transform: scale(1.05);
-}
-
-/* 5. قسم الإحصائيات (Stats) */
+/* Stats */
 .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 10%;
+    background: #000;
+    flex-wrap: wrap;
     gap: 20px;
-    padding: 60px 10%;
-    background: #111;
-    text-align: center;
 }
 
-.stat-item h2 {
-    font-size: 45px;
-    color: var(--primary-red);
-}
+.stat-item { text-align: center; min-width: 150px; }
+.stat-item h2 { color: var(--primary); font-size: 2.5rem; }
 
-/* 6. نظام البطاقات (Grid Layout) */
-.section-title {
-    text-align: center;
-    padding: 60px 0 30px;
-    font-size: 32px;
-}
+/* Grid System for Plans & Trainers */
+.section-title { text-align: center; margin: 4rem 0 2rem; font-size: 2rem; }
 
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
+/* Cards */
 .card, .trainer-card {
-    background: var(--card-gray);
-    padding: 30px;
-    border-radius: 12px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
     text-align: center;
-    transition: var(--transition);
-    border: 1px solid transparent;
+    transition: 0.3s ease-in-out;
+    border: 1px solid #222;
 }
 
-.card:hover, .trainer-card:hover {
-    border-color: var(--primary-red);
-    transform: translateY(-10px);
-}
+.card:hover, .trainer-card:hover { transform: translateY(-10px); border-color: var(--primary); }
 
-.card .price {
-    font-size: 35px;
-    font-weight: bold;
-    color: var(--primary-red);
-    margin: 15px 0;
-}
+.card .price { font-size: 2rem; color: var(--primary); font-weight: bold; margin: 15px 0; }
+.card ul { list-style: none; margin-bottom: 20px; color: var(--gray); }
 
-.card ul {
-    list-style: none;
-    margin-bottom: 20px;
-    color: #bbb;
-}
-
+/* Trainer Image Fix */
 .trainer-card img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    height: 350px;
+    object-fit: cover; /* يمنع تمدد الصورة */
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
-/* 7. حاسبة الـ BMI */
-.bmi-section {
-    padding: 80px 5%;
-}
-
+/* BMI Section */
 .bmi-box {
-    background: var(--card-gray);
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px;
-    border-radius: 15px;
+    background: var(--card-bg);
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
     text-align: center;
 }
 
-.input-group {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
+.input-group { display: flex; gap: 10px; margin-bottom: 20px; }
 .input-group input {
-    flex: 1;
-    padding: 15px;
+    width: 100%;
+    padding: 12px;
     background: #222;
     border: 1px solid #333;
-    color: white;
+    color: #fff;
     border-radius: 8px;
 }
 
-/* 8. الواتساب */
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* WhatsApp Icon Fix (The problem in your screenshot) */
 .whatsapp-float {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #25d366;
+    bottom: 20px;
+    right: 20px;
     width: 60px;
     height: 60px;
+    background-color: #25d366;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    z-index: 3000;
-    transition: var(--transition);
+    z-index: 10000; /* جعلها فوق كل شيء */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.whatsapp-float:hover { transform: scale(1.1); }
-.whatsapp-float img { width: 35px; }
-
-/* 9. الأنيميشن (Reveal) */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease-out;
+.whatsapp-float img {
+    width: 35px; /* حجم الأيقونة داخل الدائرة */
+    height: 35px;
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Animation */
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-/* 10. التجاوب مع الموبايل */
+/* Responsive */
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* يفضل إضافة قائمة هامبرجر لاحقاً */
-    .input-group { flex-direction: column; }
-    .hero-content h1 { font-size: 2.5rem; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.2rem; }
 }
-
 
 
 
