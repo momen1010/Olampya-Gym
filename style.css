@@ -1,9 +1,10 @@
+/* 1. إعدادات عامة وتحسين الخطوط */
 :root {
-    --main-color: #e50914;
-    --dark-bg: #0f0f0f;
-    --card-bg: #1a1a1a;
+    --primary-red: #e50914;
+    --dark-black: #0a0a0a;
+    --card-gray: #1a1a1a;
     --text-white: #ffffff;
-    --transition: all 0.3s ease;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 * {
@@ -14,176 +15,227 @@
 }
 
 body {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-black);
     color: var(--text-white);
     line-height: 1.6;
     overflow-x: hidden;
+    direction: rtl; /* لضبط الاتجاه العربي */
 }
 
-/* Navbar */
+/* 2. الهيدر والقائمة (Navbar) */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
-    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 5%;
+    background: rgba(0, 0, 0, 0.95);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
+    border-bottom: 2px solid var(--primary-red);
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
-.logo span { color: var(--main-color); }
+.logo span { color: var(--primary-red); }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-weight: 500;
+    font-size: 16px;
     transition: var(--transition);
 }
 
-.nav-links a:hover { color: var(--main-color); }
+.nav-links a:hover { color: var(--primary-red); }
 
-/* Hero */
+/* 3. واجهة الموقع (Hero Section) */
 .hero {
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1500&q=80') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     text-align: center;
+    padding: 0 20px;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
+.hero-content h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
+.hero-content h1 span { color: var(--primary-red); }
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ccc;
 }
 
-.hero h1 { font-size: 4rem; margin-bottom: 20px; }
-.hero h1 span { color: var(--main-color); }
-
+/* 4. الأزرار */
 .btn-primary {
-    background: var(--main-color);
-    color: #fff;
-    padding: 12px 30px;
+    background: var(--primary-red);
+    color: white;
+    padding: 12px 35px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    margin: 10px;
-}
-
-/* Stats */
-.stats {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px 10%;
-    background: #000;
-}
-
-.stat-item h2 { color: var(--main-color); font-size: 40px; }
-
-/* Cards & Pricing */
-.section-title { text-align: center; margin: 50px 0; font-size: 32px; }
-.cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 0 5%;
-}
-
-.card, .trainer-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 15px;
-    width: 300px;
-    text-align: center;
+    font-size: 18px;
     transition: var(--transition);
 }
 
-.card:hover { transform: translateY(-10px); border: 1px solid var(--main-color); }
+.btn-primary:hover {
+    background: #b20710;
+    transform: scale(1.05);
+}
 
-.featured { border: 2px solid var(--main-color); position: relative; }
-.badge {
-    position: absolute;
-    top: -15px; left: 50%; transform: translateX(-50%);
-    background: var(--main-color);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 12px;
+/* 5. قسم الإحصائيات (Stats) */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 60px 10%;
+    background: #111;
+    text-align: center;
+}
+
+.stat-item h2 {
+    font-size: 45px;
+    color: var(--primary-red);
+}
+
+/* 6. نظام البطاقات (Grid Layout) */
+.section-title {
+    text-align: center;
+    padding: 60px 0 30px;
+    font-size: 32px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card, .trainer-card {
+    background: var(--card-gray);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.card:hover, .trainer-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-10px);
+}
+
+.card .price {
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--primary-red);
+    margin: 15px 0;
+}
+
+.card ul {
+    list-style: none;
+    margin-bottom: 20px;
+    color: #bbb;
 }
 
 .trainer-card img {
     width: 100%;
-    height: 250px;
+    height: 300px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
     margin-bottom: 15px;
 }
 
-/* BMI Section */
-.bmi-section { padding: 80px 5%; display: flex; justify-content: center; }
+/* 7. حاسبة الـ BMI */
+.bmi-section {
+    padding: 80px 5%;
+}
+
 .bmi-box {
-    background: var(--card-bg);
+    background: var(--card-gray);
+    max-width: 600px;
+    margin: 0 auto;
     padding: 40px;
-    border-radius: 20px;
-    max-width: 500px;
-    width: 100%;
+    border-radius: 15px;
     text-align: center;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: #333;
-    border: none;
-    color: #fff;
-    border-radius: 5px;
+.input-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-/* WhatsApp */
+.input-group input {
+    flex: 1;
+    padding: 15px;
+    background: #222;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 8px;
+}
+
+/* 8. الواتساب */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
-    left: 30px; /* تم التغيير لليسار ليتناسب مع RTL */
-    z-index: 1000;
+    right: 30px;
+    background: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 3000;
+    transition: var(--transition);
 }
-.whatsapp-float img { width: 50px; }
 
-/* Reveal Animation */
-.reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-float img { width: 35px; }
 
-/* Responsive */
+/* 9. الأنيميشن (Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 10. التجاوب مع الموبايل */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero h1 { font-size: 2.5rem; }
-    .stats { flex-direction: column; gap: 30px; text-align: center; }
+    .nav-links { display: none; } /* يفضل إضافة قائمة هامبرجر لاحقاً */
+    .input-group { flex-direction: column; }
+    .hero-content h1 { font-size: 2.5rem; }
 }
-
-
-
 
 
 
