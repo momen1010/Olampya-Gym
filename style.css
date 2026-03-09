@@ -1,26 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
-
-:root {
-    --primary: #e50914;
-    --dark: #0a0a0a;
-    --card-bg: #161616;
-    --text: #ffffff;
-    --gray: #888;
-}
-
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: 0.3s;
 }
 
 body {
-    background-color: var(--dark);
-    color: var(--text);
-    line-height: 1.6;
-    direction: rtl;
-    overflow-x: hidden;
+    background: #0a0a0a;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* Dark/Light Mode */
+body.light {
+    background: #f5f5f5;
+    color: #111;
+}
+
+body.light nav {
+    background: rgba(255,255,255,0.9);
+}
+
+body.light .hero-content {
+    background: rgba(255,255,255,0.85);
+    color: #111;
+}
+
+body.light .card {
+    background: #fff;
+    color: #111;
+}
+
+body.light .card h3 {
+    color: #e50914;
+}
+
+body.light .card .price {
+    color: #ff4b2b;
+}
+
+body.light button {
+    color: #fff;
 }
 
 /* Navbar */
@@ -28,148 +50,296 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    background: rgba(0, 0, 0, 0.9);
-    position: fixed;
-    width: 100%;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.85);
+    position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #333;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
 
-.logo { font-size: 1.5rem; font-weight: 900; }
-.logo span { color: var(--primary); }
+nav h1 {
+    color: #e50914;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
 
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
-.nav-links a:hover { color: var(--primary); }
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070') center/cover;
+nav ul {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 80px;
-}
-
-.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.2; }
-.hero h1 span { color: var(--primary); }
-
-/* Stats */
-.stats {
-    display: flex;
-    justify-content: space-around;
-    padding: 3rem 10%;
-    background: #000;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.stat-item { text-align: center; min-width: 150px; }
-.stat-item h2 { color: var(--primary); font-size: 2.5rem; }
-
-/* Grid System for Plans & Trainers */
-.section-title { text-align: center; margin: 4rem 0 2rem; font-size: 2rem; }
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    list-style: none;
     gap: 30px;
 }
 
-/* Cards */
-.card, .trainer-card {
-    background: var(--card-bg);
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #e50914;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url("https://images.unsplash.com/photo-1599058917217-8a0f1293c24a?fit=crop&w=1600") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    background: rgba(0,0,0,0.6);
+    padding: 50px 40px;
     border-radius: 15px;
-    padding: 2rem;
     text-align: center;
-    transition: 0.3s ease-in-out;
-    border: 1px solid #222;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
 
-.card:hover, .trainer-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-
-.card .price { font-size: 2rem; color: var(--primary); font-weight: bold; margin: 15px 0; }
-.card ul { list-style: none; margin-bottom: 20px; color: var(--gray); }
-
-/* Trainer Image Fix */
-.trainer-card img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover; /* يمنع تمدد الصورة */
-    border-radius: 10px;
-    margin-bottom: 1rem;
+.hero h2 {
+    font-size: 55px;
+    margin-bottom: 20px;
+    color: #e50914;
 }
 
-/* BMI Section */
-.bmi-box {
-    background: var(--card-bg);
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
+.hero p {
+    font-size: 22px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
 }
 
-.input-group { display: flex; gap: 10px; margin-bottom: 20px; }
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    background: #222;
-    border: 1px solid #333;
-    color: #fff;
+.hero button {
+    padding: 15px 35px;
+    border: none;
+    background: linear-gradient(45deg,#e50914,#ff4b2b);
+    color: white;
+    font-size: 18px;
     border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: 0.3s;
 }
 
-.btn-primary {
-    background: var(--primary);
+.hero button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px 20px;
+    background: #111;
+}
+
+.stat {
+    text-align: center;
+    padding: 20px 30px;
+    background: linear-gradient(135deg,#1f1f1f,#2a2a2a);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+.stat:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.7);
+}
+
+.stat h2 {
+    color: #e50914;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* Cards Section */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card {
+    background: linear-gradient(145deg,#1c1c1c,#2c2c2c);
+    padding: 20px;
+    width: 280px;
+    border-radius: 15px;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #e50914;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.price {
+    font-size: 28px;
+    color: #ff4b2b;
+    margin-bottom: 15px;
+}
+
+/* BMI */
+.bmi {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.bmi input {
+    display: block;
+    margin: 12px auto;
+    padding: 12px;
+    width: 220px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.05);
     color: #fff;
+    font-size: 16px;
+}
+
+.bmi input::placeholder {
+    color: #bbb;
+}
+
+.bmi button {
     padding: 12px 25px;
+    background: linear-gradient(45deg,#e50914,#ff4b2b);
+    color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-/* WhatsApp Icon Fix (The problem in your screenshot) */
-.whatsapp-float {
+.bmi button:hover {
+    transform: scale(1.05);
+}
+
+/* Login & Contact */
+.login, .contact {
+    background: rgba(20,20,20,0.85);
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 350px;
+    margin: 40px auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+}
+
+.login input, .contact input {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.login input::placeholder, .contact input::placeholder {
+    color: #bbb;
+    font-weight: 500;
+}
+
+.login button, .contact button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg,#e50914,#ff4b2b);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login button:hover, .contact button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+}
+
+/* WhatsApp */
+.whatsapp {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000; /* جعلها فوق كل شيء */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background: green;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
-.whatsapp-float img {
-    width: 35px; /* حجم الأيقونة داخل الدائرة */
-    height: 35px;
+.whatsapp:hover {
+    transform: scale(1.1);
 }
 
-/* Animation */
-.reveal { opacity: 0; transform: translateY(30px); transition: 1s; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* Responsive */
-@media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero h1 { font-size: 2.2rem; }
+@media (max-width:768px){
+    nav { flex-direction: column; gap: 15px; }
+    .hero { padding: 60px 20px; text-align: center; height: auto; }
+    .hero h2 { font-size: 36px; }
+    .cards { flex-direction: column; align-items: center; }
+    .stats { flex-direction: column; gap: 20px; }
+    .login, .contact, .bmi { width: 90%; padding: 30px 20px; }
 }
-
 
 
 
