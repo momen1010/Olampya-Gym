@@ -1,12 +1,6 @@
-// Dark/Light Mode Toggle
-const themeToggle = document.getElementById("themeToggle");
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("light");
-});
-
 // Scroll Reveal
-window.addEventListener("scroll", () => {
-    document.querySelectorAll(".reveal").forEach(el => {
+window.addEventListener("scroll", function(){
+    document.querySelectorAll(".reveal").forEach(el=>{
         let top = el.getBoundingClientRect().top;
         let windowHeight = window.innerHeight;
         if(top < windowHeight - 100){
@@ -44,12 +38,11 @@ function calcBMI(){
     else res.innerText = "Obese";
 }
 
-// Optional: Smooth scroll for nav links
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
+// Dark/Light Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
 });
+
 
 
